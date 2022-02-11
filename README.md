@@ -9,4 +9,7 @@ https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif
 ### 1. 도트 장면 만들기
 ![Jelly 1](https://user-images.githubusercontent.com/50513500/153527713-15a10b3b-1d03-4548-a3a5-86d14242f6b4.gif)
 
-##### 구현내용
+##### 구현
+* 배경 이미지 배치
+* 해상도 조정
+* 배경 스크롤링 구현
