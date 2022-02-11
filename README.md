@@ -1,4 +1,4 @@
-# 젤리키우기
+# [Bolt Into Scripts]젤리키우기
 https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif03i
  
 ![image](https://user-images.githubusercontent.com/50513500/153525148-3f373951-9716-4e24-976f-2a741424646c.png)
