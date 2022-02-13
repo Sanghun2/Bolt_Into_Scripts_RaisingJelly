@@ -13,3 +13,10 @@ https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif
 * 배경 이미지 배치
 * 해상도 조정
 * 배경 스크롤링 구현
+
+### 2. 알아서 돌아다니는 젤리 AI
+![Jelly 2](https://user-images.githubusercontent.com/50513500/153743114-8308a4f2-5153-4bd6-a3fc-3e73932f3812.gif)
+
+##### 구현
+* 젤리 이동 및 정지 로직 구현
+* 맵의 경계 설정 및 젤리가 경계에 닿았을 때 중앙 방향으로 되돌아가는 로직 구현
