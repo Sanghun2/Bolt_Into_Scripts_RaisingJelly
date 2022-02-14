@@ -9,7 +9,7 @@ public class Jelly : MonoBehaviour
     [SerializeField] float moveSpeed;
     bool isWalk;
     float speedX, speedY;
-    float speedWeight => 0.3f; //경계에서 되돌아 갈 때 속도 보정값
+    float speedWeight => 0.8f; //경계에서 되돌아 갈 때 속도 보정값
 
     Animator anim;
     SpriteRenderer spriteRenderer;
@@ -37,10 +37,8 @@ public class Jelly : MonoBehaviour
         //이동
         transform.Translate(speedX*Time.deltaTime, speedY * Time.deltaTime, speedY * Time.deltaTime);
         //경계에 닿을 때 중앙으로 이동
-        if(transform.position.x > gameManager.GetPositon(2).x ||
-            transform.position.x < gameManager.GetPositon(0).x ||
-            transform.position.y < gameManager.GetPositon(2).y ||
-            transform.position.y > gameManager.GetPositon(0).y)
+        if(transform.position.x < gameManager.GetPositon(0).x || transform.position.x > gameManager.GetPositon(2).x ||
+             transform.position.y > gameManager.GetPositon(0).y ||transform.position.y < gameManager.GetPositon(2).y)
         {
             Vector3 direction = (gameManager.GetPositon(1) - transform.position).normalized;
             speedX = direction.x * speedWeight;
