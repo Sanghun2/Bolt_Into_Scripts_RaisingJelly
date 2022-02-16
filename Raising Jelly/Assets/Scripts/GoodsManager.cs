@@ -10,34 +10,30 @@ public class GoodsManager : MonoBehaviour
     [Header("매니저")]
     [SerializeField] UIManager uiManager;
 
+    //현재 갖고있는 재화량을 반환하는 기능. by상훈_22.02.16
+    public static int GoldIHave() => gold;
+    public static int JellatineIHave() => jellatine;
+
     //재화 획득과 사용에 관한 함수. by상훈_22.02.14
     //골드 회득
     public void GetGold(int amount)
     {
         gold += amount;
-        uiManager.SetGoldText(gold);
-        //데이터 저장
         SaveData("gold");
     }
     public void UseGold(int amount)
     {
         gold -= amount;
-        uiManager.SetGoldText(gold);
-        //데이터 저장
         SaveData("gold");
     }
     public void GetJellatine(int amount)
     {
         gold += amount;
-        uiManager.SetjellatineText(jellatine);
-        //데이터 저장
         SaveData("jellatine");
     }
     public void UseJellatine(int amount)
     {
         gold -= amount;
-        uiManager.SetjellatineText(jellatine);
-        //데이터 저장
         SaveData("jellatine");
     }
 
