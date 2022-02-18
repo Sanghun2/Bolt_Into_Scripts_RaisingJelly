@@ -20,3 +20,12 @@ https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif
 ##### 구현
 * 젤리 이동 및 정지 로직 구현
 * 맵의 경계 설정 및 젤리가 경계에 닿았을 때 중앙 방향으로 되돌아가는 로직 구현
+
+### 3. 인터페이스 만들기
+![Jelly3](https://user-images.githubusercontent.com/50513500/154681555-0cefaf2c-2e3d-4cda-9620-79737ce0e7df.gif)
+
+##### 구현
+* 캔버스 배치 및 조정
+* 하단 UI 제작 & 배치
+* 상단 재화 텍스트UI 제작 & 배치
+* 재화 변동시 smoothstep을 사용한 애니메이션 효과 구현
