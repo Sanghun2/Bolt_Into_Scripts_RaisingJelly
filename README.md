@@ -29,3 +29,5 @@ https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif
 * 하단 UI 제작 & 배치
 * 상단 재화 텍스트UI 제작 & 배치
 * 재화 변동시 smoothstep을 사용한 애니메이션 효과 구현
+
+### 4. 클리커 기능 구현
