@@ -1,0 +1,39 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+//젤리의 상태를 관리하는 클래스
+public class JellyManager : MonoBehaviour
+{
+    [SerializeField] RuntimeAnimatorController[] controller;
+    int maxExpPerLevel => 30;
+
+    public static JellyManager instance;
+
+    void Awake()
+    {
+        instance = this;
+    }
+
+    //젤리 레벨업 기능. by상훈_22.02.21
+    public void LevelUp(Jelly jelly)
+    {
+        //3일때는 레벨업X
+        if (jelly.CurLevel() == 3) return;
+
+        //3이 아니라면 레벨업
+        jelly.SetLevel(jelly.CurLevel() + 1);
+        //경험치 초기화
+        jelly.SetExp(0);
+        //필요 경험치 설정
+        jelly.SetMaxExp(jelly.CurLevel()*maxExpPerLevel);
+        //젤리의 사이즈 변경
+        jelly.SetController(ChangeController(jelly.CurLevel()));
+    }
+
+    //젤리의 컨트롤러를 변경하는 기능. by상훈_22.02.21
+    public RuntimeAnimatorController ChangeController(int level) => controller[level-1];
+
+    //레벨당 필요한 경험치를 반환하는 함수. by상훈_22.02.21
+    public int MaxExpPerLevel() => maxExpPerLevel;
+}

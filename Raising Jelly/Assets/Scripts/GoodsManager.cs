@@ -10,15 +10,23 @@ public class GoodsManager : MonoBehaviour
     [Header("매니저")]
     [SerializeField] UIManager uiManager;
 
+    public static GoodsManager instance;
+
     //현재 갖고있는 재화량을 반환하는 기능. by상훈_22.02.16
     public static int GoldIHave() => gold;
     public static int JellatineIHave() => jellatine;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     //재화 획득과 사용에 관한 함수. by상훈_22.02.14
     //골드 회득
     public void GetGold(int amount)
     {
         gold += amount;
+        if (gold > 999999999) gold = 999999999;
         SaveData("gold");
     }
     public void UseGold(int amount)
@@ -28,12 +36,13 @@ public class GoodsManager : MonoBehaviour
     }
     public void GetJellatine(int amount)
     {
-        gold += amount;
+        jellatine += amount;
+        if (jellatine > 999999999) jellatine = 999999999;
         SaveData("jellatine");
     }
     public void UseJellatine(int amount)
     {
-        gold -= amount;
+        jellatine -= amount;
         SaveData("jellatine");
     }
 
