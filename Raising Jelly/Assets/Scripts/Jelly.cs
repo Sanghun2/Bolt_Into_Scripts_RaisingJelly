@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //젤리의 행동을 관리하는 클래스. by상훈
+[RequireComponent(typeof(CircleCollider2D), typeof(Animator))]
 public class Jelly : MonoBehaviour
 {
     [Header("능력치")]
