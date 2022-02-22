@@ -31,3 +31,9 @@ https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif
 * 재화 변동시 smoothstep을 사용한 애니메이션 효과 구현
 
 ### 4. 클리커 기능 구현
+![Jelly 4](https://user-images.githubusercontent.com/50513500/155065006-21dfa1d1-35e4-4885-b188-357ba39badc2.gif)
+
+##### 구현
+* 젤리 클릭시 젤라틴 및 경험치 추가 구현
+* 재화 최대치 구현
+* 경험치 일정수치 이상 달성시 레벨업 구현
