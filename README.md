@@ -37,3 +37,5 @@ https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif
 * 젤리 클릭시 젤라틴 및 경험치 추가 구현
 * 재화 최대치 구현
 * 경험치 일정수치 이상 달성시 레벨업 구현
+
+### 5. 판매를 위한 젤리 드래그 & 드랍
