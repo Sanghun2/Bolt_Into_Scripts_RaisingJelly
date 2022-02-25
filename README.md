@@ -40,4 +40,5 @@ https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif
 
 ### 5. 판매를 위한 젤리 드래그 & 드랍
 * 젤리 드래그로 옮기는 기능 구현
-df
+* 젤리 판매 시 레벨과 종류에 따라 골드 획득  
+
