@@ -43,5 +43,6 @@ https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif
 
 ##### 구현
 * 젤리 드래그로 옮기는 기능 구현
-* 젤리 판매 시 레벨과 종류에 따라 골드 획득  
+* 경계 바깥으로 나갈 시 젤리 원위치 구현
+* 젤리 판매 시 레벨과 종류에 따라 골드 획득 구현
 
