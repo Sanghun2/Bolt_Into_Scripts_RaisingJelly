@@ -39,6 +39,9 @@ https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif
 * 경험치 일정수치 이상 달성시 레벨업 구현
 
 ### 5. 판매를 위한 젤리 드래그 & 드랍
+![5](https://user-images.githubusercontent.com/50513500/155927441-7897c20d-0488-4fd0-b5fa-c71f4d68c71b.gif)
+
+##### 구현
 * 젤리 드래그로 옮기는 기능 구현
 * 젤리 판매 시 레벨과 종류에 따라 골드 획득  
 
