@@ -46,3 +46,10 @@ https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif
 * 경계 바깥으로 나갈 시 젤리 원위치 구현
 * 젤리 판매 시 레벨과 종류에 따라 골드 획득 구현
 
+### 6. UI창 구축하기
+
+##### 구현
+* 젤리 창 UI 구현
+* 젤리공장 창 UI 구현
+* 옵션 창 UI 구현
+* 젤리창, 젤리공장 UI Move Up, Move Down 애니메이션 구현
