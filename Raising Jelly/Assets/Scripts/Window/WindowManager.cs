@@ -5,23 +5,13 @@ using UnityEngine;
 //팝업창을 관리하는 클래스
 public class WindowManager : MonoBehaviour
 {
-    [Header("관리되는 윈도우")]
-    [SerializeField] GameObject jellyWindow;
-    [SerializeField] GameObject plantWindow;
+    [Header("윈도우")]
+    [SerializeField] WindowController[] movableWindow;
     [SerializeField] GameObject optionWindow;
-
-    WindowController jellyWindowController;
-    WindowController plantWindowController;
 
     bool isJellyOpened;
     bool isPlantOpened;
-    bool isOptionOpened;
-
-    void Awake()
-    {
-        jellyWindowController = jellyWindow.GetComponent<WindowController>();
-        plantWindowController = plantWindow.GetComponent<WindowController>();
-    }
+    static bool isOptionOpened;
 
     void Update()
     {
@@ -37,74 +27,66 @@ public class WindowManager : MonoBehaviour
             }
             else if (isOptionOpened)
             {
-                OpenOptionWindow(false);
+                OpenOption(false);
             }
             else
             {
-                OpenOptionWindow(true);
+                OpenOption(true);
             }
         }
     }
 
-    //젤리창 ON/OFF하는 기능. by상훈_22.03.03
+    //젤리 윈도우 ON/OFF하는 기능. by상훈_22.03.03
     public void OpenJellyWindow(bool isOpen)
     {
-        if (!isJellyOpened && isOpen)
+        if (isOptionOpened) return;
+
+        if (!isJellyOpened)
         {
-            ShowWindow("jelly");
+            movableWindow[0].OpenWindow(isOpen);
+            if (isPlantOpened) OpenPlantWindow(false);
+            isJellyOpened = true;
         }
         else
         {
-            jellyWindowController.CloseWindow();
+            movableWindow[0].OpenWindow(false);
+            isJellyOpened = false;
         }
-
-        isJellyOpened = isOpen;
     }
 
-    //건설창 ON/OFF하는 기능. by상훈_22.03.03
+    //건설 윈도우 ON/OFF하는 기능. by상훈_22.03.03
     public void OpenPlantWindow(bool isOpen)
     {
-        if (!isPlantOpened && isOpen)
+        if (isOptionOpened) return;
+
+        if (!isPlantOpened)
         {
-            ShowWindow("plant");
+            movableWindow[1].OpenWindow(isOpen);
+            if (isJellyOpened) OpenJellyWindow(false);
+            isPlantOpened = true;
         }
         else
         {
-            plantWindowController.CloseWindow();
+            movableWindow[1].OpenWindow(false);
+            isPlantOpened = false;
         }
-
-        isPlantOpened = isOpen;
     }
 
     //옵션창 ON/OFF하는 기능. by상훈_22.03.03
-    public void OpenOptionWindow(bool isOpen)
+    void OpenOption(bool isOpen)
     {
-        ShowWindow("option");
+        optionWindow.SetActive(isOpen);
         isOptionOpened = isOpen;
-    }
-
-    //윈도우 여러 개 떠있을 때 관리하는 기능.
-    void ShowWindow(string name)
-    {
-        switch (name)
+        if (isOptionOpened)
         {
-            case "jelly":
-                jellyWindow.SetActive(true); //ON
-                plantWindowController.CloseWindow();
-                optionWindow.SetActive(false);
-                break;
-            case "plant":
-                jellyWindowController.CloseWindow();
-                plantWindow.SetActive(true); //ON
-                optionWindow.SetActive(false);
-                break;
-            case "option":
-                jellyWindowController.CloseWindow();
-                plantWindowController.CloseWindow();
-                optionWindow.SetActive(true); //ON
-                break;
-            default:
-                break;
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
         }
     }
+
+    //옵션창의 ON/OFF여부 반환
+    public static bool IsOptionOn() => isOptionOpened;
 }

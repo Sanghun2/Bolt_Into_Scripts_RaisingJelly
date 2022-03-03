@@ -143,6 +143,8 @@ public class Jelly : MonoBehaviour
     //젤리 클릭시 발생하는 이벤트. by상훈_22.02.21
     void OnMouseDown()
     {
+        if (WindowManager.IsOptionOn()) return;
+
         //재화증가
         GoodsManager.instance.GetJellatine((id+1)*level);
         //경험치증가
@@ -155,12 +157,16 @@ public class Jelly : MonoBehaviour
     //젤리 길게 클릭시 발생하는 이벤트. by상훈_22.02.26
     void OnMouseDrag()
     {
+        if (WindowManager.IsOptionOn()) return;
+
         isPicked = true;
     }
 
     //젤리를 놓았을 때 발생하는 이벤트. by상훈_22.02.26
     void OnMouseUp()
     {
+        if (WindowManager.IsOptionOn()) return;
+
         //판매상태면 판매 실행
         if (SellManager.instance.IsSellable())
         {
