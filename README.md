@@ -47,9 +47,11 @@ https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif
 * 젤리 판매 시 레벨과 종류에 따라 골드 획득 구현
 
 ### 6. UI창 구축하기
+![Jelly6](https://user-images.githubusercontent.com/50513500/156875364-5abaeef7-50c7-425d-afe6-d2e6b00a3b2d.gif)
 
 ##### 구현
 * 젤리 창 UI 구현
 * 젤리공장 창 UI 구현
 * 옵션 창 UI 구현
 * 젤리창, 젤리공장 UI Move Up, Move Down 애니메이션 구현
+* 옵션창 ON/OFF 구현
