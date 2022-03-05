@@ -55,3 +55,4 @@ https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif
 * 옵션 창 UI 구현
 * 젤리창, 젤리공장 UI Move Up, Move Down 애니메이션 구현
 * 옵션창 ON/OFF 구현
+* 옵션창 ON인 동안 젤리 및 배경 정지 
