@@ -5,6 +5,13 @@ using UnityEngine;
 //젤리의 상태를 관리하는 클래스
 public class JellyManager : MonoBehaviour
 {
+    [Header("젤리에 대한 데이터")]
+    public List<string> jellyNameList = new List<string>();
+    public List<int> requiredJellatineList = new List<int>();
+    public List<Sprite> jellyImageList = new List<Sprite>();
+
+    [Header("젤리의 애니메이션 컨트롤러")][Space(15f)]
+    [Tooltip("젤리의 크기를 결정하는 애니메이션 컨트롤러다.")]
     [SerializeField] RuntimeAnimatorController[] controller;
     int maxExpPerLevel => 30;
 
