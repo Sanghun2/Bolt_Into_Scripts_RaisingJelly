@@ -58,5 +58,8 @@ https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif
 * 옵션창 ON인 동안 젤리 및 배경 정지 
 
 ### 7. 해금 시스템 만들기
+![Jelly 7](https://user-images.githubusercontent.com/50513500/157710004-03a6784e-c942-4400-a9ee-0bba6e09686d.gif)
 
 ##### 구현
+1. 젤리 해금 시스템 구현
+2. 젤리창 좌우 이동 
