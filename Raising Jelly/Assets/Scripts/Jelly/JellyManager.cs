@@ -9,6 +9,7 @@ public class JellyManager : MonoBehaviour
     public List<string> jellyNameList = new List<string>();
     public List<int> requiredJellatineList = new List<int>();
     public List<Sprite> jellyImageList = new List<Sprite>();
+    static int numOfJelly;
 
     [Header("젤리의 애니메이션 컨트롤러")][Space(15f)]
     [Tooltip("젤리의 크기를 결정하는 애니메이션 컨트롤러다.")]
@@ -20,8 +21,10 @@ public class JellyManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        numOfJelly = jellyNameList.Count;
     }
 
+    #region 젤리 상태 관리
     //젤리 레벨업 기능. by상훈_22.02.21
     public void LevelUp(Jelly jelly)
     {
@@ -41,6 +44,13 @@ public class JellyManager : MonoBehaviour
     //젤리의 컨트롤러를 변경하는 기능. by상훈_22.02.21
     public RuntimeAnimatorController ChangeController(int level) => controller[level-1];
 
+    #endregion
+
+    #region 젤리 정보 관리
     //레벨당 필요한 경험치를 반환하는 함수. by상훈_22.02.21
     public int MaxExpPerLevel() => maxExpPerLevel;
+
+    //전체 젤리의 수를 반환하는 함수. by상훈_22.03.10
+    public static int HowManyJelly() => numOfJelly;
+    #endregion
 }

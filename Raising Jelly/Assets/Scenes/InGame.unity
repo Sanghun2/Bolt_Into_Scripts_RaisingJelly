@@ -898,7 +898,7 @@ GameObject:
   - component: {fileID: 416658316}
   - component: {fileID: 416658315}
   m_Layer: 5
-  m_Name: Jelly Image
+  m_Name: Locked Jelly Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1905,7 +1905,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 2, y: -1.4}
+  m_AnchoredPosition: {x: 2, y: -1.3999996}
   m_SizeDelta: {x: 6.3999996, y: 6.3999996}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &926592816
@@ -2271,8 +2271,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1067988214}
   - component: {fileID: 1067988213}
+  - component: {fileID: 1067988215}
   m_Layer: 0
-  m_Name: SellManager
+  m_Name: TradeManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2305,6 +2306,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1067988215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067988212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad7b0e72e4f1c34b8d8a9076356a5c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1083156990
 GameObject:
   m_ObjectHideFlags: 0
@@ -2322,7 +2335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1083156991
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3455,7 +3468,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1732404292}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2021311688}
+        m_TargetAssemblyTypeName: PageSwitcher, Assembly-CSharp
+        m_MethodName: PageDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1732404292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3606,7 +3631,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 2, y: -1.4}
+  m_AnchoredPosition: {x: 2, y: -1.3999996}
   m_SizeDelta: {x: 6.3999996, y: 6.3999996}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1867887224
@@ -3889,6 +3914,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1899279814}
   - component: {fileID: 1899279813}
+  - component: {fileID: 1899279815}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3926,6 +3952,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1899279815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899279812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 069f6b0479b582e44a1b448493e2c100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unlockList: 000000000000000000000000
 --- !u!1 &1957951316
 GameObject:
   m_ObjectHideFlags: 0
@@ -4566,6 +4605,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2021311685}
   - component: {fileID: 2021311686}
+  - component: {fileID: 2021311688}
+  - component: {fileID: 2021311687}
   m_Layer: 0
   m_Name: WindowManager
   m_TagString: Untagged
@@ -4603,6 +4644,40 @@ MonoBehaviour:
   - {fileID: 1894311627}
   - {fileID: 1083156993}
   optionWindow: {fileID: 438398830}
+--- !u!114 &2021311687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021311684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 795e8179af6619c4092bbf996ce90efd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pageNumText: {fileID: 942955601}
+  lockedJellyImage: {fileID: 416658315}
+  unlockedJellyImage: {fileID: 2010761365}
+  jellyNameText: {fileID: 534521401}
+  jellyGoldText: {fileID: 1088235108}
+  jellyJellatineText: {fileID: 2048161340}
+  unlockObj: {fileID: 407602822}
+  lockObj: {fileID: 353523853}
+  jellyManager: {fileID: 1972754075}
+--- !u!114 &2021311688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021311684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90992f1d5a1e0f44f8c58adc144b01b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pageRenewer: {fileID: 2021311687}
 --- !u!1 &2048161338
 GameObject:
   m_ObjectHideFlags: 0
@@ -4951,7 +5026,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2127594453}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2021311688}
+        m_TargetAssemblyTypeName: PageSwitcher, Assembly-CSharp
+        m_MethodName: PageUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2127594453
 MonoBehaviour:
   m_ObjectHideFlags: 0
