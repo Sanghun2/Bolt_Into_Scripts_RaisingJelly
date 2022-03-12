@@ -41,4 +41,8 @@ public class PageSwitcher : MonoBehaviour
         pageRenewer.RenewPage(index);
     }
     #endregion
+
+    #region 정보 관리
+    public int GetIndex() => index;
+    #endregion
 }

@@ -15,14 +15,13 @@ public class GameData : MonoBehaviour
 
         for (int i = 0; i < unlockList.Length; i++)
         {
-            if (i == 0) unlockList[i] = true;
-            else unlockList[i] = false;
+            unlockList[i] = false; //나중에 저장된 데이터 읽어와서 설정
         }
     }
 
     #region 해금 데이터 관리
     //해금 데이터 수정 및 반환. by상훈_22.03.10
-    public void SetUnlockData(int index, bool isTrue) => unlockList[index] = isTrue;
+    public void SetUnlockData(int index, bool isTrue) => unlockList[index - 1] = isTrue;
     public bool GetUnlockData(int index) => unlockList[index - 1]; //들어오는 매개변수 인덱스는 항상 시작이 1 기준이므로 -1 처리
     #endregion
 }

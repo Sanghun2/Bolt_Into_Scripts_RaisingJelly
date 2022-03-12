@@ -22,6 +22,13 @@ public class PageRenewer : MonoBehaviour
     [Header("매니저")][Space(15f)]
     [SerializeField] JellyManager jellyManager;
 
+    public static PageRenewer instance;
+
+    void Awake()
+    {
+        instance = this;
+    }
+
     //페이지 새로고침 기능. by상훈_22.03.09
     public void RenewPage(int curIndex)
     {

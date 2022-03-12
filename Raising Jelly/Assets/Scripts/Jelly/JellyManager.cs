@@ -49,8 +49,9 @@ public class JellyManager : MonoBehaviour
     #region 젤리 정보 관리
     //레벨당 필요한 경험치를 반환하는 함수. by상훈_22.02.21
     public int MaxExpPerLevel() => maxExpPerLevel;
-
     //전체 젤리의 수를 반환하는 함수. by상훈_22.03.10
     public static int HowManyJelly() => numOfJelly;
+    //특정 젤리 해금에 필요한 값 반환. by상훈_22.03.10
+    public int ReqiredJellatine(int index) => requiredJellatineList[index - 1];
     #endregion
 }

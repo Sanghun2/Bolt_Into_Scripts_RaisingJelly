@@ -19,6 +19,11 @@ public class GoodsManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+
+        if (PlayerPrefs.HasKey("gold")) gold = PlayerPrefs.GetInt("gold");
+        else gold = 0;
+        if (PlayerPrefs.HasKey("jellatine")) jellatine = PlayerPrefs.GetInt("jellatine");
+        else jellatine = 0;
     }
 
     //재화 획득과 사용에 관한 함수. by상훈_22.02.14
@@ -55,4 +60,14 @@ public class GoodsManager : MonoBehaviour
         //캐시 데이터 저장
         PlayerPrefs.Save();
     }
+
+    #region 테스트함수
+    [ContextMenu("Get_100Jellatine")]
+    public void Get_100Jellatine()
+    {
+        jellatine += 500000;
+        if (jellatine > 999999999) jellatine = 999999999;
+        SaveData("gold");
+    }
+    #endregion
 }
