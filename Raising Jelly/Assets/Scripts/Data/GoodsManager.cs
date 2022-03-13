@@ -52,7 +52,7 @@ public class GoodsManager : MonoBehaviour
     }
 
 
-    //재화 데이터 저장하는 기능. by상훈_22.02.14
+    //재화 데이터 저장. by상훈_22.02.14
     public void SaveData(string type)
     {
         if (type == "gold") PlayerPrefs.SetInt("gold", gold);

@@ -21,23 +21,23 @@ public class PageSwitcher : MonoBehaviour
     }
 
     #region 페이지 이동 함수
-    //이전 페이지로 이동하는 기능. by상훈_22.03.09
+    //이전 페이지로 이동. by상훈_22.03.09
     public void PageDown()
     {
         if (index == 1) return;
-        //이전 페이지로 이동
-        index -= 1;
+
         //이동 후 인덱스에 따라 정보 새로고침
+        index -= 1;
         pageRenewer.RenewPage(index);
     }
 
-    //다음 페이지로 이동하는 기능. by상훈_22.03.09
+    //다음 페이지로 이동. by상훈_22.03.09
     public void PageUp()
     {
         if (index == JellyManager.HowManyJelly()) return;
-        //다음 페이지로 이동
-        index += 1;
+
         //이동 후 인덱스에 따라 정보 새로고침
+        index += 1;
         pageRenewer.RenewPage(index);
     }
     #endregion

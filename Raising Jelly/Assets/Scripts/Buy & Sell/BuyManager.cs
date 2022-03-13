@@ -13,7 +13,7 @@ public class BuyManager : MonoBehaviour
     #endregion
 
     #region ¡©∂Û∆æ
-    //¡©∏Æ∏¶ «ÿ±›«œ¥¬ ±‚¥…. byªÛ»∆_22.03.11
+    //¡©∏Æ∏¶ «ÿ±›. byªÛ»∆_22.03.11
     public void UnlockJelly()
     {
         int num = pageSwitcher.GetIndex();

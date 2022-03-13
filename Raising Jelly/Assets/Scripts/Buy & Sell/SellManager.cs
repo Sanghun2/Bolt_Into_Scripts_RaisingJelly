@@ -16,13 +16,13 @@ public class SellManager : MonoBehaviour
         instance = this;
     }
 
-    //터치가 판매버튼 위에 들어갔을 때. by상훈_22.02.26
+    //터치가 판매버튼 위에 들어갔을 때 실행. by상훈_22.02.26
     public void GetInToButton()
     {
         isSell = true;
     }
 
-    //터치가 판매버튼에서 나왔을 때. by상훈_22.02.26
+    //터치가 판매버튼에서 나왔을 때 실행. by상훈_22.02.26
     public void GetOutFromButton()
     {
         isSell = false;

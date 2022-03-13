@@ -29,7 +29,7 @@ public class PageRenewer : MonoBehaviour
         instance = this;
     }
 
-    //페이지 새로고침 기능. by상훈_22.03.09
+    //페이지 새로고침. by상훈_22.03.09
     public void RenewPage(int curIndex)
     {
         //페이지 넘버 갱신
@@ -45,7 +45,7 @@ public class PageRenewer : MonoBehaviour
         }
     }
 
-    //언락 상태인 젤리를 보여주는 함수. by상훈_22.03.10
+    //언락 상태인 젤리를 보여주기. by상훈_22.03.10
     void ShowUnlock(int index)
     {
         //락 이미지 숨기기
@@ -62,7 +62,7 @@ public class PageRenewer : MonoBehaviour
         jellyGoldText.text = $"{gold:n0}";
     }
 
-    //락 상태인 젤리를 보여주는 함수. by상훈_22.03.10
+    //락 상태인 젤리를 보여주기. by상훈_22.03.10
     void ShowLock(int index)
     {
         //언락 이미지 숨기기
