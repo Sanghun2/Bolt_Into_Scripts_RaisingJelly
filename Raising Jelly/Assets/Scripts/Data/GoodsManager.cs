@@ -10,7 +10,8 @@ public class GoodsManager : MonoBehaviour
     [Header("매니저")]
     [SerializeField] UIManager uiManager;
 
-    public static GoodsManager instance;
+    static GoodsManager instance;
+    public static GoodsManager Instance => instance;
 
     //현재 갖고있는 재화량을 반환하는 기능. by상훈_22.02.16
     public static int GoldIHave() => gold;
@@ -62,11 +63,19 @@ public class GoodsManager : MonoBehaviour
     }
 
     #region 테스트함수
-    [ContextMenu("Get_100Jellatine")]
-    public void Get_100Jellatine()
+    [ContextMenu("Get_500000Jellatine")]
+    public void Get_500000Jellatine()
     {
         jellatine += 500000;
         if (jellatine > 999999999) jellatine = 999999999;
+        SaveData("jellatine");
+    }
+
+    [ContextMenu("Get_500000Gold")]
+    public void Get_500000Gold()
+    {
+        gold += 500000;
+        if (gold > 999999999) gold = 999999999;
         SaveData("gold");
     }
     #endregion

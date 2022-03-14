@@ -7,12 +7,16 @@ public class PageSwitcher : MonoBehaviour
 {
     static int index;
 
+    private static PageSwitcher instance;
+    public static PageSwitcher Instance => instance;
+
     [Header("¸Å´ÏÀú")]
     [SerializeField] PageRenewer pageRenewer;
 
     void Awake()
     {
         index = 1;
+        instance = this;
     }
 
     void Start()

@@ -7,7 +7,8 @@ public class GameData : MonoBehaviour
 {
     [SerializeField] bool[] unlockList; //해금여부 리스트
 
-    public static GameData instance;
+    static GameData instance;
+    public static GameData Instance => instance;
 
     void Awake()
     {

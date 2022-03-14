@@ -9,7 +9,8 @@ public class SellManager : MonoBehaviour
     [Header("Á©¸®°¡°Ý")]
     [SerializeField] int[] jellyPrice;
 
-    public static SellManager instance;
+    static SellManager instance;
+    public static SellManager Instance => instance;
 
     void Awake()
     {

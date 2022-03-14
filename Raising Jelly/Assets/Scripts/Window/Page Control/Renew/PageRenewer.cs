@@ -22,7 +22,8 @@ public class PageRenewer : MonoBehaviour
     [Header("매니저")][Space(15f)]
     [SerializeField] JellyManager jellyManager;
 
-    public static PageRenewer instance;
+    static PageRenewer instance;
+    public static PageRenewer Instance => instance;
 
     void Awake()
     {
@@ -35,7 +36,7 @@ public class PageRenewer : MonoBehaviour
         //페이지 넘버 갱신
         pageNumText.text = $"#{curIndex:00}";
         //해금된 상태
-        if (GameData.instance.GetUnlockData(curIndex))
+        if (GameData.Instance.GetUnlockData(curIndex))
         {
             ShowUnlock(curIndex);
         }
@@ -73,7 +74,7 @@ public class PageRenewer : MonoBehaviour
         //setNative()
         lockedJellyImage.SetNativeSize();
         //젤리 가격 갱신(세자리 마다 ,)
-        jellyJellatineText.text = $"{jellyManager.requiredJellatineList[index - 1]:n0}";
+        jellyJellatineText.text = $"{BuyManager.Instance.requiredJellatineList[index - 1]:n0}";
     }
 
     void HideLockObj(bool isShow)
