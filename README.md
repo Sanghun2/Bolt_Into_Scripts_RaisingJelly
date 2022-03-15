@@ -63,3 +63,8 @@ https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif
 ##### 구현
 1. 젤리 해금 시스템 구현
 2. 젤리창 좌우 이동 
+
+### 8. 구매시스템 만들기
+* 젤리 구매 로직 구현
+* 구매시 젤리 스폰 구현
+*
