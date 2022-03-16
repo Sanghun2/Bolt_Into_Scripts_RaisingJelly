@@ -8,9 +8,9 @@ public class Jelly : MonoBehaviour
 {
     [Header("능력치")]
     int id;
-    public int level;
-    public float exp;
-    public int maxExp; //필요 경험치
+    int level;
+    float exp;
+    int maxExp; //필요 경험치
 
     bool isWalk; //걷는 중인지 판단
     float moveSpeed => 1;
@@ -56,7 +56,7 @@ public class Jelly : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         shaodwPos = GetComponentInChildren<Transform>();
         correctedValue = new Vector3(0, 0, -5);
-        SetMaxExp(CurLevel() * JellyManager.Instance.MaxExpPerLevel());
+        SetMaxExp(CurLevel * JellyManager.Instance.MaxExpPerLevel());
 
         //그림자 위치 설정
         shaodwPos.position = new Vector3(0, JellyManager.Instance.GetShadowPos(id), 0);
@@ -170,12 +170,7 @@ public class Jelly : MonoBehaviour
         //판매상태면 판매 실행
         if (SellManager.Instance.IsSellable())
         {
-            int price = SellManager.Instance.GetJellyPrice(id);
-            price *= level;
-            GoodsManager.Instance.GetGold(price);
-
-            //판매 후 젤리파괴
-            Destroy(gameObject);
+            SellManager.Instance.SellJelly(gameObject);
         }
         else //아니면 원위치
         {
@@ -230,11 +225,11 @@ public class Jelly : MonoBehaviour
 
     //반환
     //젤리의 ID 반환하는 기능. by상훈_22.02.21
-    public int ID() => id;
+    public int ID => id;
     //현재 레벨값 반환하는 기능. by상훈_22.02.21
-    public int CurLevel() => level;
+    public int CurLevel => level;
     //젤리의 현재 경험치 반환. by상훈_22.02.21
-    public float CurExp() => exp;
+    public float CurExp => exp;
     #endregion
 
     #region 젤리 레벨업 관련 기능

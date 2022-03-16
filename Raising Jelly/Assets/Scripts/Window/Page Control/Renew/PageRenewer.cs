@@ -62,7 +62,6 @@ public class PageRenewer : MonoBehaviour
         int gold = 1000; //임시데이터
         jellyGoldText.text = $"{gold:n0}";
     }
-
     //락 상태인 젤리를 보여주기. by상훈_22.03.10
     void ShowLock(int index)
     {

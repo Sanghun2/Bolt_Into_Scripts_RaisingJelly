@@ -2,18 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//젤리의 상태를 관리하는 클래스
+//젤리들의 상태를 관리하는 클래스
 public class JellyManager : MonoBehaviour
 {
-    [Header("젤리에 대한 데이터")]
+    [Header("젤리 데이터")]
     public List<string> jellyNameList = new List<string>();
     public List<Sprite> jellyImageList = new List<Sprite>();
     public float[] shadowPos;
     static int numOfJelly;
+
+    [Header("젤리 생성")]
+    [Space(15f)]
     [Tooltip("젤리 프리펩")]
     [SerializeField] GameObject jellyPrefab;
     [Tooltip("생성되는 위치")]
     [SerializeField] Transform spawnPoint;
+
+    [Header("생성된 젤리 리스트")]
+    [Space(15f)]
+    List<GameObject> jellyList = new List<GameObject>();
 
     [Header("젤리의 애니메이션 컨트롤러")][Space(15f)]
     [Tooltip("젤리의 크기를 결정하는 애니메이션 컨트롤러다.")]
@@ -34,16 +41,16 @@ public class JellyManager : MonoBehaviour
     public void LevelUp(Jelly jelly)
     {
         //3일때는 레벨업X
-        if (jelly.CurLevel() == 3) return;
+        if (jelly.CurLevel == 3) return;
 
         //3이 아니라면 레벨업
-        jelly.SetLevel(jelly.CurLevel() + 1);
+        jelly.SetLevel(jelly.CurLevel + 1);
         //경험치 초기화
         jelly.SetExp(0);
         //필요 경험치 설정
-        jelly.SetMaxExp(jelly.CurLevel()*maxExpPerLevel);
+        jelly.SetMaxExp(jelly.CurLevel*maxExpPerLevel);
         //젤리의 사이즈 변경
-        jelly.SetController(ChangeController(jelly.CurLevel()));
+        jelly.SetController(ChangeController(jelly.CurLevel));
     }
 
     //젤리의 컨트롤러를 변경하는 기능. by상훈_22.02.21
@@ -55,16 +62,32 @@ public class JellyManager : MonoBehaviour
     //젤리생성. by상훈_22.03.14
     public void CreateJelly(int id)
     {
-        GameObject jelly = Instantiate(jellyPrefab, spawnPoint.position, Quaternion.identity);
+        GameObject jelly = Instantiate(jellyPrefab, spawnPoint);
         Jelly jellyInfo = jelly.GetComponent<Jelly>();
         Animator jellyAnim = jelly.GetComponent<Animator>();
         SpriteRenderer jellySprite = jelly.GetComponent<SpriteRenderer>();
         jellyInfo.SetID(id);
         jellyInfo.SetLevel(1);
         jellyInfo.SetExp(0);
+        jellyInfo.SetMaxExp(jellyInfo.CurLevel * maxExpPerLevel);
 
-        jellyAnim.runtimeAnimatorController = controller[jellyInfo.CurLevel() - 1];
+        jellyAnim.runtimeAnimatorController = controller[jellyInfo.CurLevel - 1];
         jellySprite.sprite = jellyImageList[id];
+
+        AddJellyToList(jelly);
+        GameData.Instance.SaveJellyAll(jellyList);
+    }
+
+    //생성된 젤리 리스트에 추가. by상훈_22.03.16
+    public void AddJellyToList(GameObject jellyObj)
+    {
+        jellyList.Add(jellyObj);
+    }
+
+    //판매된 젤리 리스트에서 제거. by상훈_22.03.16
+    public void RemoveJellyFromList(GameObject jellyObj)
+    {
+        jellyList.Remove(jellyObj);
     }
     #endregion
 
@@ -93,5 +116,8 @@ public class JellyManager : MonoBehaviour
                 return shadowPos[3];
         }
     }
+
+    //현재 젤리 리스트 반환. by상훈_22.03.16
+    public List<GameObject> GetJellyList() => jellyList;
     #endregion
 }
