@@ -67,4 +67,4 @@ https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif
 ### 8. 구매시스템 만들기
 * 젤리 구매 로직 구현
 * 구매시 젤리 스폰 구현
-*
+* 구매,판매시 데이터 자동저장
