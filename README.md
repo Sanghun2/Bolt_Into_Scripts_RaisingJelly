@@ -65,6 +65,10 @@ https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif
 2. 젤리창 좌우 이동 
 
 ### 8. 구매시스템 만들기
+
+##### 구현
 * 젤리 구매
 * 구매시 젤리 스폰 구현
 * 구매,판매시 데이터 자동저장
+
+### 9. 업그레이드 시스템 구현
