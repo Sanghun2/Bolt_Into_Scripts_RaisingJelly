@@ -6,13 +6,18 @@ using UnityEngine.UI;
 //페이지에 변경사항이 있을 때 새로고침을 담당하는 클래스
 public class PageRenewer : MonoBehaviour
 {
-    [Header("새로고침 항목")]
+    [Header("젤리 새로고침 항목")]
     [SerializeField] Text pageNumText;
     [SerializeField] Image lockedJellyImage;
     [SerializeField] Image unlockedJellyImage;
     [SerializeField] Text jellyNameText;
     [SerializeField] Text jellyGoldText;
     [SerializeField] Text jellyJellatineText;
+
+    [Header("스킬 새로고침 항목")]
+    [Space(15f)]
+    [SerializeField] Text numSubText;
+    [SerializeField] Text clickSubText;
 
     [Header("언락/락")]
     [Space(15f)]
@@ -30,6 +35,7 @@ public class PageRenewer : MonoBehaviour
         instance = this;
     }
 
+    #region 젤리창
     //페이지 새로고침. by상훈_22.03.09
     public void RenewPage(int curIndex)
     {
@@ -45,7 +51,6 @@ public class PageRenewer : MonoBehaviour
             ShowLock(curIndex);
         }
     }
-
     //언락 상태인 젤리를 보여주기. by상훈_22.03.10
     void ShowUnlock(int index)
     {
@@ -75,10 +80,19 @@ public class PageRenewer : MonoBehaviour
         //젤리 가격 갱신(세자리 마다 ,)
         jellyJellatineText.text = $"{BuyManager.Instance.requiredJellatineList[index - 1]:n0}";
     }
-
     void HideLockObj(bool isShow)
     {
         lockObj.SetActive(!isShow);
         unlockObj.SetActive(isShow);
     }
+    #endregion
+    #region 스킬창
+    public void RenewPlantPage()
+    {
+        int num = 2;
+        //서브텍스트 설명 변경
+        numSubText.text = $"젤리 수용량 {num}";
+        clickSubText.text = $"클릭 생산량 x {num}";
+    }
+    #endregion
 }

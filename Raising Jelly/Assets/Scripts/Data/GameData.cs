@@ -9,6 +9,8 @@ public class GameData : MonoBehaviour
     [Header("유저 데이터")]
     [SerializeField] bool[] unlockList; //해금여부 리스트
     public List<JellyData> jellyDataList = new List<JellyData>();
+    [SerializeField] int numberLevel;
+    [SerializeField] int clickLevel;
 
     string jellyDataFile => "Resources/JellyData.Json";
     string unlockDataFile => "Resources/UnlockData.Json";
@@ -23,6 +25,12 @@ public class GameData : MonoBehaviour
 
         LoadUnlockData();
         LoadJellyData();
+        if (PlayerPrefs.HasKey("numberLevel")) numberLevel = PlayerPrefs.GetInt("numberLevel");
+        else numberLevel = 1;
+        if (PlayerPrefs.HasKey("clickLevel")) clickLevel = PlayerPrefs.GetInt("clickLevel");
+        else clickLevel = 1;
+
+        PlantManager.Instance.InitSkillLevel();
 
         GameManager.Instance.StartGame(true);
     }
@@ -108,5 +116,19 @@ public class GameData : MonoBehaviour
         if(GameManager.Instance.IsStarted()) SaveUnlockData();
     }
     public bool GetUnlockData(int index) => unlockList[index - 1]; //들어오는 매개변수 인덱스는 항상 시작이 1 기준이므로 -1 처리
+    #endregion
+    #region 스킬데이터 관리
+    public void AddNumLevel(int value)
+    {
+        numberLevel += value;
+        PlayerPrefs.SetInt("numberLevel", numberLevel);
+    }
+    public void AddClickLevel(int value)
+    {
+        clickLevel += value;
+        PlayerPrefs.SetInt("clickLevel", clickLevel);
+    }
+    public int NumberLevel => numberLevel;
+    public int ClickLevel => clickLevel;
     #endregion
 }
