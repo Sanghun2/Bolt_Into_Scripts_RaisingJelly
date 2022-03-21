@@ -3585,6 +3585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4355f4ea9d58434438a1708ffc0d1c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  costType: 0
   numCostList: 00000000e8030000d00700008813000010270000
   clickCostList: 00000000c40900008813000010270000204e0000
 --- !u!4 &1371179460
@@ -4943,8 +4944,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlockList: 010000000000000000000000
   jellyDataList: []
-  numberLevel: 0
-  clickLevel: 0
+  numberLevel: 1
+  clickLevel: 1
 --- !u!1 &1962092288
 GameObject:
   m_ObjectHideFlags: 0
@@ -5415,9 +5416,15 @@ MonoBehaviour:
   jellyJellatineText: {fileID: 2048161340}
   numSubText: {fileID: 1790090006}
   clickSubText: {fileID: 153561210}
+  numPriceText: {fileID: 114196794}
+  clickPriceText: {fileID: 1512681200}
+  numButton: {fileID: 809796455}
+  clickButton: {fileID: 1085347491}
   unlockObj: {fileID: 407602822}
   lockObj: {fileID: 353523853}
   jellyManager: {fileID: 1972754075}
+  plantManager: {fileID: 1371179459}
+  gameData: {fileID: 1899279815}
 --- !u!114 &2021311688
 MonoBehaviour:
   m_ObjectHideFlags: 0

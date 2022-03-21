@@ -18,6 +18,11 @@ public class PageRenewer : MonoBehaviour
     [Space(15f)]
     [SerializeField] Text numSubText;
     [SerializeField] Text clickSubText;
+    [SerializeField] Text numPriceText;
+    [SerializeField] Text clickPriceText;
+    [SerializeField] GameObject numButton;
+    [SerializeField] GameObject clickButton;
+    PlantManager.CostType costType;
 
     [Header("언락/락")]
     [Space(15f)]
@@ -26,6 +31,8 @@ public class PageRenewer : MonoBehaviour
 
     [Header("매니저")][Space(15f)]
     [SerializeField] JellyManager jellyManager;
+    [SerializeField] PlantManager plantManager;
+    [SerializeField] GameData gameData;
 
     static PageRenewer instance;
     public static PageRenewer Instance => instance;
@@ -80,6 +87,7 @@ public class PageRenewer : MonoBehaviour
         //젤리 가격 갱신(세자리 마다 ,)
         jellyJellatineText.text = $"{BuyManager.Instance.requiredJellatineList[index - 1]:n0}";
     }
+    //잠김 관련 오브젝트 숨기기(언락된 경우). by상훈
     void HideLockObj(bool isShow)
     {
         lockObj.SetActive(!isShow);
@@ -87,12 +95,79 @@ public class PageRenewer : MonoBehaviour
     }
     #endregion
     #region 스킬창
+    //건설페이지 정보 새로고침. by상훈
     public void RenewPlantPage()
     {
-        int num = 2;
-        //서브텍스트 설명 변경
-        numSubText.text = $"젤리 수용량 {num}";
-        clickSubText.text = $"클릭 생산량 x {num}";
+        int skillLevel = gameData.NumberLevel;
+        numSubText.text = $"젤리 수용량 {skillLevel * 2}";
+        costType = PlantManager.CostType.Number;
+        if (skillLevel == 5)
+        {
+            HidePriceButton(costType);
+        }
+        else
+        {
+            numPriceText.text = $"{plantManager.GetNumCost(skillLevel)}";
+        }
+
+        skillLevel = gameData.ClickLevel;
+        clickSubText.text = $"클릭 생산량 x {skillLevel}";
+        costType = PlantManager.CostType.Click;
+        if (skillLevel == 5)
+        {
+            HidePriceButton(costType);
+        }
+        else
+        {
+            clickPriceText.text = $"{plantManager.GetClickCost(skillLevel)}";
+        }
+    }
+    public void RenewPlantPage(PlantManager.CostType costType)
+    {
+        
+        if (costType == PlantManager.CostType.Number)
+        {
+            int skillLevel = gameData.NumberLevel;
+            numSubText.text = $"젤리 수용량 {skillLevel * 2}";
+            costType = PlantManager.CostType.Number;
+            if (skillLevel == 5)
+            {
+                HidePriceButton(costType);
+            }
+            else
+            {
+                numPriceText.text = $"{plantManager.GetNumCost(skillLevel)}";
+            }
+        }
+        else
+        {
+            int skillLevel = gameData.ClickLevel;
+            clickSubText.text = $"클릭 생산량 x {skillLevel}";
+            costType = PlantManager.CostType.Click;
+            if (skillLevel == 5)
+            {
+                HidePriceButton(costType);
+            }
+            else
+            {
+                clickPriceText.text = $"{plantManager.GetClickCost(skillLevel)}";
+            }
+        }
+    }
+    //가격버튼 숨기기(최대 레벨일 경우). by상훈
+    void HidePriceButton(PlantManager.CostType costType)
+    {
+        switch (costType)
+        {
+            case PlantManager.CostType.Number:
+                numButton.SetActive(false);
+                break;
+            case PlantManager.CostType.Click:
+                clickButton.SetActive(false);
+                break;
+            default:
+                break;
+        }
     }
     #endregion
 }

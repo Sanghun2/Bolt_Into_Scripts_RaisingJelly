@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlantManager : MonoBehaviour
 {
+    public enum CostType { Number, Click}
+    public CostType costType;
+
+    [Header("업그레이드 비용")]
     [SerializeField] int[] numCostList;
     [SerializeField] int[] clickCostList;
 
@@ -21,9 +25,10 @@ public class PlantManager : MonoBehaviour
         int cost = numCostList[GameData.Instance.NumberLevel];
         if (cost <= GoodsManager.GoldIHave())
         {
-            GoodsManager.Instance.UseGold(cost);
-            GameData.Instance.AddNumLevel(1);
-            PageRenewer.Instance.RenewPlantPage();
+            GoodsManager.Instance.UseGold(cost); //재화차감
+            GameData.Instance.AddNumLevel(1); //레벨업
+            costType = CostType.Number;
+            PageRenewer.Instance.RenewPlantPage(costType); //페이지 갱신
         }
     }
     public void UpgradeClick()
@@ -33,7 +38,8 @@ public class PlantManager : MonoBehaviour
         {
             GoodsManager.Instance.UseGold(cost);
             GameData.Instance.AddClickLevel(1);
-            PageRenewer.Instance.RenewPlantPage();
+            costType = CostType.Click;
+            PageRenewer.Instance.RenewPlantPage(costType);
         }
     }
     #endregion
@@ -43,5 +49,10 @@ public class PlantManager : MonoBehaviour
     {
         PageRenewer.Instance.RenewPlantPage();
     }
+    #endregion
+
+    #region 데이터 관리
+    public int GetNumCost(int index) => numCostList[index];
+    public int GetClickCost(int index) => clickCostList[index];
     #endregion
 }

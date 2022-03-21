@@ -122,13 +122,37 @@ public class GameData : MonoBehaviour
     {
         numberLevel += value;
         PlayerPrefs.SetInt("numberLevel", numberLevel);
+        PlayerPrefs.Save();
     }
     public void AddClickLevel(int value)
     {
         clickLevel += value;
         PlayerPrefs.SetInt("clickLevel", clickLevel);
+        PlayerPrefs.Save();
     }
     public int NumberLevel => numberLevel;
     public int ClickLevel => clickLevel;
+
+    //테스트함수_스킬 초기화
+    [ContextMenu("Reset Skill")]
+    public void ResetSkill()
+    {
+        if (PlayerPrefs.HasKey("numberLevel"))
+        {
+            numberLevel = 1;
+            PlayerPrefs.SetInt("numberLevel", numberLevel);
+            PlayerPrefs.Save();
+        }
+        else numberLevel = 1;
+        if (PlayerPrefs.HasKey("clickLevel"))
+        {
+            clickLevel = 1;
+            PlayerPrefs.SetInt("clickLevel", clickLevel);
+            PlayerPrefs.Save();
+        }
+        else clickLevel = 1;
+
+        PageRenewer.Instance.RenewPlantPage();
+    }
     #endregion
 }
