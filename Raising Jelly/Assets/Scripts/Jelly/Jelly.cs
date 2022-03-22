@@ -21,6 +21,9 @@ public class Jelly : MonoBehaviour
     bool isPicked; //젤리가 터치 판정인지 여부
     bool isPicking; //젤리가 드래그로 이동중인지 여부
 
+    //재화 획득 주기
+    float gainTime;
+
     Animator anim;
     SpriteRenderer spriteRenderer;
     Vector3 correctedValue; //드래그 시 가장 앞으로 보이도록 보정하는 값
@@ -29,6 +32,7 @@ public class Jelly : MonoBehaviour
     void Update()
     {
         Move();
+        gainTime += Time.deltaTime;
 
         //시간에 따라 경험치 증가로직. by상훈_22.02.21
         //레벨 체크해서 레벨이 3보다 작으면 경험치 획득
@@ -39,6 +43,14 @@ public class Jelly : MonoBehaviour
             CheckExp();
         }
 
+        //일정 시간마다 젤라틴 획득
+        if(gainTime >= 5)
+        {
+            GoodsManager.Instance.GetJellatine((id + 1) * level * GameData.Instance.ClickLevel);
+            gainTime = 0;
+        }
+
+        //일정시간 터치 유지하는 경우 드래그 가능. by상훈
         if (isPicked)
         {
             pickTime += Time.deltaTime;
@@ -146,7 +158,7 @@ public class Jelly : MonoBehaviour
         if (WindowManager.IsOptionOn()) return;
 
         //재화증가
-        GoodsManager.Instance.GetJellatine((id+1)*level);
+        GoodsManager.Instance.GetJellatine((id+1)*level*GameData.Instance.ClickLevel);
         //경험치증가
         if (level < 3) exp++;
         //터치 애니메이션 실행

@@ -11,6 +11,8 @@ public class BuyManager : MonoBehaviour
 
     [Header("¸Å´ÏÀú")][Space(15f)]
     [SerializeField] PageSwitcher pageSwitcher;
+    [SerializeField] JellyManager jellyManager;
+    [SerializeField] GameData gameData;
 
     private static BuyManager instance;
     public static BuyManager Instance => instance;
@@ -24,6 +26,8 @@ public class BuyManager : MonoBehaviour
     //Á©¸®¸¦ ±¸¸Å. by»óÈÆ_22.03.14
     public void BuyJelly()
     {
+        if(jellyManager.CurJellyCount >= gameData.NumberLevel*2) return;
+
         int num = pageSwitcher.GetIndex();
         int amount = JellyManager.Instance.ReqiredGold(num);
         int id = PageSwitcher.Instance.GetIndex() - 1;

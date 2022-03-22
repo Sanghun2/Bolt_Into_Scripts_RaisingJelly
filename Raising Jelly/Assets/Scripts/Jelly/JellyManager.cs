@@ -119,5 +119,7 @@ public class JellyManager : MonoBehaviour
 
     //현재 젤리 리스트 반환. by상훈_22.03.16
     public List<GameObject> GetJellyList() => jellyList;
+    //현재 젤리 수 반환
+    public int CurJellyCount => jellyList.Count;
     #endregion
 }

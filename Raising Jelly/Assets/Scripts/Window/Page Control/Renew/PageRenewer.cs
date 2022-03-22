@@ -169,5 +169,25 @@ public class PageRenewer : MonoBehaviour
                 break;
         }
     }
+    //가격버튼 보이기. by상훈
+    public void ShowPriceButton()
+    {
+        numButton.SetActive(true);
+        clickButton.SetActive(true);
+    }
+    public void ShowPriceButton(PlantManager.CostType costType)
+    {
+        switch (costType)
+        {
+            case PlantManager.CostType.Number:
+                numButton.SetActive(true);
+                break;
+            case PlantManager.CostType.Click:
+                clickButton.SetActive(true);
+                break;
+            default:
+                break;
+        }
+    }
     #endregion
 }

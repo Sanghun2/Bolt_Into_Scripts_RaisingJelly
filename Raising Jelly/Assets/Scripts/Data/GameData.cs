@@ -153,6 +153,7 @@ public class GameData : MonoBehaviour
         else clickLevel = 1;
 
         PageRenewer.Instance.RenewPlantPage();
+        PageRenewer.Instance.ShowPriceButton();
     }
     #endregion
 }
