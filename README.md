@@ -72,3 +72,9 @@ https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif
 * 구매,판매시 데이터 자동저장
 
 ### 9. 업그레이드 시스템 구현
+![9](https://user-images.githubusercontent.com/50513500/159616084-df899f3c-993b-4b7a-8a48-fc73d0aac9ac.gif)
+
+##### 구현
+* 플랜트(젤리 관리 능력치 - 수용량증가, 획득재화증가) 구현
+* 플랜트에서 스킬 레벨업 가능
+* 최대 젤리수에서 추가 젤리 구매 불가
