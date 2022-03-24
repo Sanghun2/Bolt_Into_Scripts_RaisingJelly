@@ -78,3 +78,7 @@ https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif
 * 플랜트(젤리 관리 능력치 - 수용량증가, 획득재화증가) 구현
 * 플랜트에서 스킬 레벨업 가능
 * 최대 젤리수에서 추가 젤리 구매 불가
+
+### 10. 사운드와 옵션시스템
+
+##### 구현
