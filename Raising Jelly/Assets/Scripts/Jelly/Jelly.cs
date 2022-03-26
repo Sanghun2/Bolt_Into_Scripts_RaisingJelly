@@ -161,6 +161,8 @@ public class Jelly : MonoBehaviour
         GoodsManager.Instance.GetJellatine((id+1)*level*GameData.Instance.ClickLevel);
         //경험치증가
         if (level < 3) exp++;
+
+        SoundManager.Instance.PlayTouchSound();
         //터치 애니메이션 실행
         anim.SetTrigger("doTouch");
         StopMove();

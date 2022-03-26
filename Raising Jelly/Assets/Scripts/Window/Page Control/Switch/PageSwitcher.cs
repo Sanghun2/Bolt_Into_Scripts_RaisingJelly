@@ -12,6 +12,7 @@ public class PageSwitcher : MonoBehaviour
 
     [Header("매니저")]
     [SerializeField] PageRenewer pageRenewer;
+    [SerializeField] SoundManager soundManager;
 
     void Awake()
     {
@@ -33,6 +34,7 @@ public class PageSwitcher : MonoBehaviour
         //이동 후 인덱스에 따라 정보 새로고침
         index -= 1;
         pageRenewer.RenewPage(index);
+        soundManager.PlayButtonSound();
     }
 
     //다음 페이지로 이동. by상훈_22.03.09
@@ -43,6 +45,7 @@ public class PageSwitcher : MonoBehaviour
         //이동 후 인덱스에 따라 정보 새로고침
         index += 1;
         pageRenewer.RenewPage(index);
+        soundManager.PlayButtonSound();
     }
     #endregion
 

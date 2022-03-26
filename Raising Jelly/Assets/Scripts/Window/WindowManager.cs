@@ -9,6 +9,9 @@ public class WindowManager : MonoBehaviour
     [SerializeField] WindowController[] movableWindow;
     [SerializeField] GameObject optionWindow;
 
+    [Header("¸Å´ÏÀú")][Space(15f)]
+    [SerializeField] SoundManager soundManager;
+
     bool isJellyOpened;
     bool isPlantOpened;
     bool isClosing;
@@ -36,10 +39,12 @@ public class WindowManager : MonoBehaviour
             else if (isOptionOpened)
             {
                 OpenOption(false);
+                soundManager.PlayPauseOutSound();
             }
             else
             {
                 OpenOption(true);
+                soundManager.PlayPauseInSound();
             }
         }
     }

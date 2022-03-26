@@ -27,6 +27,10 @@ public class JellyManager : MonoBehaviour
     [SerializeField] RuntimeAnimatorController[] controller;
     int maxExpPerLevel => 30;
 
+    [Header("매니저")]
+    [Space(15f)]
+    [SerializeField] SoundManager soundManager;
+
     static JellyManager instance;
     public static JellyManager Instance => instance;
 
@@ -45,6 +49,7 @@ public class JellyManager : MonoBehaviour
 
         //3이 아니라면 레벨업
         jelly.SetLevel(jelly.CurLevel + 1);
+        soundManager.PlayGrowSound();
         //경험치 초기화
         jelly.SetExp(0);
         //필요 경험치 설정

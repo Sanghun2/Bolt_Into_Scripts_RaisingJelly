@@ -11,6 +11,10 @@ public class PlantManager : MonoBehaviour
     [SerializeField] int[] numCostList;
     [SerializeField] int[] clickCostList;
 
+    [Header("매니저")]
+    [Space(15f)]
+    [SerializeField] SoundManager soundManager;
+
     static PlantManager instance;
     public static PlantManager Instance => instance;
 
@@ -27,6 +31,7 @@ public class PlantManager : MonoBehaviour
         {
             GoodsManager.Instance.UseGold(cost); //재화차감
             GameData.Instance.AddNumLevel(1); //레벨업
+            soundManager.PlayUnlockSound();
             costType = CostType.Number;
             PageRenewer.Instance.RenewPlantPage(costType); //페이지 갱신
         }
@@ -38,6 +43,7 @@ public class PlantManager : MonoBehaviour
         {
             GoodsManager.Instance.UseGold(cost);
             GameData.Instance.AddClickLevel(1);
+            soundManager.PlayUnlockSound();
             costType = CostType.Click;
             PageRenewer.Instance.RenewPlantPage(costType);
         }

@@ -9,6 +9,9 @@ public class SellManager : MonoBehaviour
     [Header("젤리가격")]
     [SerializeField] int[] jellyPrice;
 
+    [Header("매니저")] [Space(15f)]
+    [SerializeField] SoundManager soundManager;
+
     static SellManager instance;
     public static SellManager Instance => instance;
 
@@ -38,6 +41,8 @@ public class SellManager : MonoBehaviour
         int price = GetJellyPrice(jellyInfo.ID);
         price *= jellyInfo.CurLevel;
         GoodsManager.Instance.GetGold(price);
+
+        soundManager.PlaySellSound();
         //리스트에서 제거
         JellyManager.Instance.RemoveJellyFromList(targetJelly);
         //저장할 데이터 수정
