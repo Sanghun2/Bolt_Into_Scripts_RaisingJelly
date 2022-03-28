@@ -39,12 +39,10 @@ public class WindowManager : MonoBehaviour
             else if (isOptionOpened)
             {
                 OpenOption(false);
-                soundManager.PlayPauseOutSound();
             }
             else
             {
                 OpenOption(true);
-                soundManager.PlayPauseInSound();
             }
         }
     }
@@ -103,17 +101,20 @@ public class WindowManager : MonoBehaviour
     }
 
     //옵션창 ON/OFF하는 기능. by상훈_22.03.03
-    void OpenOption(bool isOpen)
+    public void OpenOption(bool isOpen)
     {
         optionWindow.SetActive(isOpen);
         isOptionOpened = isOpen;
         if (isOptionOpened)
         {
             Time.timeScale = 0;
+            soundManager.PlayPauseInSound();
         }
         else
         {
             Time.timeScale = 1;
+            soundManager.PlayPauseOutSound();
+            GameManager.Instance.SavePref();
         }
     }
 

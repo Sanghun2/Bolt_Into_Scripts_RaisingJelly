@@ -101,4 +101,9 @@ public class SoundManager : MonoBehaviour
         sfxPlayer.clip = unlockClip;
         sfxPlayer.Play();
     }
+
+    #region 데이터관리
+    public AudioSource BgmPlayer => bgmPlayer;
+    public AudioSource SfxPlayer => sfxPlayer;
+    #endregion
 }
