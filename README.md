@@ -80,5 +80,8 @@ https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif
 * 최대 젤리수에서 추가 젤리 구매 불가
 
 ### 10. 사운드와 옵션시스템
+![10](https://user-images.githubusercontent.com/50513500/160553280-0aed7366-5899-421c-8c00-f2db26920e03.gif)
 
 ##### 구현
+* 사운드 적용
+* 사운드 설정값 저장 및 불러오기
