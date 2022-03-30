@@ -85,3 +85,7 @@ https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif
 ##### 구현
 * 사운드 적용
 * 사운드 설정값 저장 및 불러오기
+
+### 11. 모바일 빌드
+
+##### 구현
