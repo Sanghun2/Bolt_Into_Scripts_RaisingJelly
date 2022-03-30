@@ -34,6 +34,7 @@ https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif
 ![Jelly 4](https://user-images.githubusercontent.com/50513500/155065006-21dfa1d1-35e4-4885-b188-357ba39badc2.gif)
 
 ##### 구현
+* 레벨 시스템 적용
 * 젤리 클릭시 젤라틴 및 경험치 추가 구현
 * 재화 최대치 구현
 * 경험치 일정수치 이상 달성시 레벨업 구현
