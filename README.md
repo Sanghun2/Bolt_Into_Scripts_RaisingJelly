@@ -90,3 +90,4 @@ https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif
 ### 11. 모바일 빌드
 
 ##### 구현
+* 이벤트에 따른 알림메세지 
