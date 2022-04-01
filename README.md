@@ -90,4 +90,5 @@ https://www.youtube.com/watch?v=G6NronfnXfg&list=PLO-mt5Iu5TeZA0y889ZMi9wJafthif
 ### 11. 모바일 빌드
 
 ##### 구현
-* 이벤트에 따른 알림메세지 
+* 이벤트에 따른 알림메세지 기능
+* 모든 젤리 해금 시 게임클리어 엔딩 추가
