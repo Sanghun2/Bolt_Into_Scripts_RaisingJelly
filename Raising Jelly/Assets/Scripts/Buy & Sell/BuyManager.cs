@@ -14,6 +14,7 @@ public class BuyManager : MonoBehaviour
     [SerializeField] JellyManager jellyManager;
     [SerializeField] GameData gameData;
     [SerializeField] SoundManager soundManager;
+    [SerializeField] NoticeManager noticeManager;
 
     private static BuyManager instance;
     public static BuyManager Instance => instance;
@@ -27,7 +28,11 @@ public class BuyManager : MonoBehaviour
     //젤리를 구매. by상훈_22.03.14
     public void BuyJelly()
     {
-        if(jellyManager.CurJellyCount >= gameData.NumberLevel*2) return;
+        if(jellyManager.CurJellyCount >= gameData.NumberLevel * 2)
+        {
+            noticeManager.ShowMessage(NoticeManager.Message.NotEnoughCap);
+            return;
+        }
 
         int num = pageSwitcher.GetIndex();
         int amount = JellyManager.Instance.ReqiredGold(num);
@@ -44,6 +49,7 @@ public class BuyManager : MonoBehaviour
         else
         {
             soundManager.PlayFailSound();
+            noticeManager.ShowMessage(NoticeManager.Message.NotEnoughGold);
         }
     }
     #endregion
@@ -64,6 +70,11 @@ public class BuyManager : MonoBehaviour
             soundManager.PlayUnlockSound();
             //새로고침
             PageRenewer.Instance.RenewPage(num);
+        }
+        else
+        {
+            soundManager.PlayFailSound();
+            noticeManager.ShowMessage(NoticeManager.Message.NotEnoughJellatine);
         }
     }
     #endregion
