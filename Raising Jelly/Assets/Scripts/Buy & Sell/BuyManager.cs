@@ -15,6 +15,7 @@ public class BuyManager : MonoBehaviour
     [SerializeField] GameData gameData;
     [SerializeField] SoundManager soundManager;
     [SerializeField] NoticeManager noticeManager;
+    [SerializeField] UIManager uiManager;
 
     private static BuyManager instance;
     public static BuyManager Instance => instance;
@@ -53,23 +54,26 @@ public class BuyManager : MonoBehaviour
         }
     }
     #endregion
-
     #region 젤라틴
     //젤리를 해금. by상훈_22.03.11
     public void UnlockJelly()
     {
-        int num = pageSwitcher.GetIndex();
-        int amount = JellyManager.Instance.ReqiredJellatine(num);
+        int curIndex = pageSwitcher.GetIndex();
+        int amount = JellyManager.Instance.ReqiredJellatine(curIndex);
         //충분한 젤라틴을 가졌는지 체크
         if (GoodsManager.JellatineIHave() >= amount)
         {
             //재화 처리
             GoodsManager.Instance.UseJellatine(amount);
             //젤리 해금
-            GameData.Instance.SetUnlockData(num, true);
+            GameData.Instance.SetUnlockData(curIndex, true);
             soundManager.PlayUnlockSound();
             //새로고침
-            PageRenewer.Instance.RenewPage(num);
+            if(curIndex == jellyManager.GetAllJellyCount())
+            {
+                uiManager.ShowClearBadge(true);
+            }
+            PageRenewer.Instance.RenewPage(curIndex);
         }
         else
         {
@@ -77,5 +81,9 @@ public class BuyManager : MonoBehaviour
             noticeManager.ShowMessage(NoticeManager.Message.NotEnoughJellatine);
         }
     }
+    #endregion
+    #region 데이터 관리
+    //해당 인덱스의 젤리 구매 가격 반환. by상훈_22.04.03
+    public int GetPriceOfJelly(int index) => requiredGoldList[index];
     #endregion
 }

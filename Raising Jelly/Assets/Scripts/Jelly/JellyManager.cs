@@ -126,5 +126,7 @@ public class JellyManager : MonoBehaviour
     public List<GameObject> GetJellyList() => jellyList;
     //ÇöÀç Á©¸® ¼ö ¹ÝÈ¯
     public int CurJellyCount => jellyList.Count;
+    //¸ðµç Á©¸® ¼ö. by»óÈÆ_22.04.03
+    public int GetAllJellyCount() => jellyNameList.Count;
     #endregion
 }

@@ -11,6 +11,8 @@ public class GameData : MonoBehaviour
     public List<JellyData> jellyDataList = new List<JellyData>();
     [SerializeField] int numberLevel;
     [SerializeField] int clickLevel;
+    bool isFirstGame;
+    bool isCleared;
 
     string jellyDataFile => "Resources/JellyData.Json";
     string unlockDataFile => "Resources/UnlockData.Json";
@@ -31,6 +33,8 @@ public class GameData : MonoBehaviour
         else clickLevel = 1;
 
         PlantManager.Instance.InitSkillLevel();
+
+        isFirstGame = true; //나중에 데이터 읽어서 초기화
 
         GameManager.Instance.StartGame(true);
     }
@@ -155,5 +159,13 @@ public class GameData : MonoBehaviour
         PageRenewer.Instance.RenewPlantPage();
         PageRenewer.Instance.ShowPriceButton();
     }
+    #endregion
+    #region 기본데이터 관리
+    //처음 시작 여부. by상훈_22.04.03
+    public bool IsFirstGame() => isFirstGame;
+    public void MakeNotFirst() => isFirstGame = false;
+    //모든 젤리 해금 여부. by상훈_22.04.03
+    public bool IsCleared() => isCleared;
+    public void MakeClear(bool isCleared) => this.isCleared = isCleared;
     #endregion
 }

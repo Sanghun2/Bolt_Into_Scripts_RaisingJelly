@@ -23,6 +23,7 @@ public class NoticeManager : MonoBehaviour
     [Space(15f)]
     [SerializeField] SoundManager soundManager;
     [SerializeField] ColorManager colorManager;
+    [SerializeField] GameData gameData;
 
     static NoticeManager instance;
     public static NoticeManager Instance => instance;
@@ -39,6 +40,14 @@ public class NoticeManager : MonoBehaviour
         waitFor_3Sec = new WaitForSeconds(3f);
         showedMessagePos = new Vector3(0, -10, 0);
         hiddenMessagePos = new Vector3(0, 10, 0);
+    }
+
+    void Start()
+    {
+        if (gameData.IsFirstGame())
+        {
+            ShowMessage(Message.Start);
+        }
     }
 
     /// <summary>

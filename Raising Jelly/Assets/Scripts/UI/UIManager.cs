@@ -10,9 +10,33 @@ public class UIManager : MonoBehaviour
     [SerializeField] Text goldText;
     [SerializeField] Text jellatineText;
 
+    [Header("클리어 뱃지")]
+    [Space(15f)]
+    [SerializeField] GameObject clearBadge;
+
+    [Header("매니저")] [Space(15f)]
+    [SerializeField] GameData gameData;
+    [SerializeField] NoticeManager noticeManager;
+
+    void Start()
+    {
+        if (gameData.IsCleared()) ShowClearBadge(true);
+    }
+
     void LateUpdate()
     {
         goldText.text = $"{Mathf.SmoothStep(float.Parse(goldText.text), GoodsManager.GoldIHave(), 0.5f):n0}";
         jellatineText.text = $"{Mathf.SmoothStep(float.Parse(jellatineText.text), GoodsManager.JellatineIHave(), 0.5f):n0}";
+    }
+
+    //클리어 뱃지 ON/OFF. by상훈_22.04.03
+    public void ShowClearBadge(bool isShow)
+    {
+        clearBadge.SetActive(isShow);
+        gameData.MakeClear(isShow);
+        if (isShow)
+        {
+            noticeManager.ShowMessage(NoticeManager.Message.Clear);
+        }
     }
 }

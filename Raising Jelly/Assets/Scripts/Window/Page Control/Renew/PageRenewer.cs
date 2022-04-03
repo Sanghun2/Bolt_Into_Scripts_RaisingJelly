@@ -33,6 +33,7 @@ public class PageRenewer : MonoBehaviour
     [SerializeField] JellyManager jellyManager;
     [SerializeField] PlantManager plantManager;
     [SerializeField] GameData gameData;
+    [SerializeField] BuyManager buyManager;
 
     static PageRenewer instance;
     public static PageRenewer Instance => instance;
@@ -71,8 +72,8 @@ public class PageRenewer : MonoBehaviour
         //젤리 이름 갱신
         jellyNameText.text = jellyManager.jellyNameList[index - 1];
         //젤리 가격 갱신(세자리 마다 ,)
-        int gold = 1000; //임시데이터
-        jellyGoldText.text = $"{gold:n0}";
+        int requiredGold = buyManager.GetPriceOfJelly(index - 1); //임시데이터
+        jellyGoldText.text = $"{requiredGold:n0}";
     }
     //락 상태인 젤리를 보여주기. by상훈_22.03.10
     void ShowLock(int index)
